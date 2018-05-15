@@ -46,6 +46,31 @@ int main(int argc, char **argv) {
     OSFatal("Hello, world!\n");
     return 0;
 }
+#elif __SWITCH__
+#include <stdio.h>
+
+#include <switch.h>
+
+int main(int argc, char **argv) {
+    gfxInitDefault();
+    consoleInit(NULL);
+
+    printf("Hello, world!\n");
+
+    while(appletMainLoop()) {
+        hidScanInput();
+        if(hidKeysDown(CONTROLLER_P1_AUTO) & KEY_PLUS) {
+            break;
+        }
+
+        gfxFlushBuffers();
+        gfxSwapBuffers();
+        gfxWaitForVsync();
+    }
+
+    gfxExit();
+    return 0;
+}
 #else
 #include <stdio.h>
 
