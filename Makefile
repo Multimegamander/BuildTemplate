@@ -50,7 +50,7 @@ ifeq ($(TARGET),SWITCH)
     LIBRARY_DIRS += $(DEVKITPRO)/libnx
     LIBRARIES += nx
 
-    ICON := meta/icon_switch.png
+    ICON := meta/icon_switch.jpg
 endif
 
 # INTERNAL #
